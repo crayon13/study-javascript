@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A simple MVC structure</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>My users</h1>
+        <nav><a href="#list">List</a> - <a href="#add">Add</a></nav>
+        <div id="app"></div>
+    </div>
+    <script data-main="/js/controller/01.js" src="/js/lib/require.js"></script>
+
+	<a href="#" onclick="add()">test</a> 
+    
+	<div class="spaceship" data-id="92432"
+    	data-weapons="laser 2" data-shields="50%"
+    	data-x="30" data-y="10" data-z="90">
+		<button class="fire" onclick="alert(spaceships[this.parentNode.dataset.id])">
+		  Fire
+		</button>
+	</div>
+
+    
+</body>
+</html>
