@@ -1,16 +1,10 @@
 define(
-	function()
 	{
-		function add(a, b)
+		add : function(a,b)
 		{
 			return a + b;
 		}
-		
-		return {
-			add : add
-		};
-	}
-
+	}	
 );
 
 
