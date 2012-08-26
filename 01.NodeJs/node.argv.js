@@ -2,7 +2,6 @@
 process.argv.forEach(
 		function (item, index)
 		{
-			//출력합니다
 			console.log(index + ' : ' + typeof(item) + ' : ', item);
 			
 			if ( item == '--exit' )

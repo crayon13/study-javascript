@@ -1,8 +1,6 @@
 	
-	// 모듈을 추출합니다.
 	var http = require('http');
 
-	// 웹서버를 생성 및 실행 합니다.
 	http.createServer(
 		function (request, response)
 		{
