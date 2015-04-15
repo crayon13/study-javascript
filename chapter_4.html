@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+	<script type="text/javascript">
+	<!--
+		function output(msg) {
+			document.writeln(msg + '<br>');
+		}
+
+		// 1. 함수 리터럴
+		var add = function( a, b ) {
+			return a + b;
+		};
+
+		// 2. 메서드 호출 패턴 
+		//	- 함수를 객체의 속성에 저장하는 경우
+		//	- this 는 객체를 참조 ( this 의 바인딩은 호출시에 일어남 )
+		var myObject = {
+			value : 0
+			, increment : function(inc) {
+				this.value += typeof inc === 'number' ? inc : 1;
+			}
+			, getValue : function() {
+				return this.value;
+			}
+		};
+
+		myObject.increment();
+		output(myObject.value);
+
+		myObject.increment(2);
+		output(myObject.value);
+
+		// 3. 함수 호출 패턴
+		//	- this는 전역 객체에 바인딩
+		var sum = add(3,4);
+		output(sum);
+
+		myObject.double = function() {
+			var that = this;
+
+			var helper =  function() {
+				that.value = add(that.value, that.value);
+			}
+
+			helper();
+		};
+
+		myObject.double();
+		output(myObject.getValue());
+
+		// 4. 생성자 호출 패턴
+		//	- 권장 사항이 아님
+		var Quo  = function(string) {
+			this.status = string;
+		};
+
+		Quo.prototype.getStatus = function() {
+			return this.status;
+		};
+
+		var myQuo = new Quo('confused');
+		output(myQuo.getStatus());
+
+		// 5. apply 호출 패턴
+		var array = [3, 4];
+		var sum = add.apply(null,  array);
+		output(sum);
+
+		var statusObject = {
+			status : 'A-OK'	
+		};
+
+		var status = Quo.prototype.getStatus.apply(statusObject);
+		output(status);
+		output(myQuo.getStatus());
+
+	//-->
+	</script>
+ </body>
+</html>
