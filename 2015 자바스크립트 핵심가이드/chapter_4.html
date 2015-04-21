@@ -83,6 +83,25 @@
 		output(status);
 		output(myQuo.getStatus());
 
+		// 7. 기본 타입에 기능 추가
+		Function.prototype.method = function(name, func) {
+			this.prototype[name] = func;
+			return this;
+		}
+
+		Number.method('integer', function() {
+			return Math[this < 0 ? 'ceil' : 'floor'](this);
+		});
+
+		output( (-10 / 3).integer() );
+
+		String.method('trim', function() {
+			return this.replace(/^\s+|\s+$/g, '');
+		});
+
+		output('"' + '    neat '.trim() + '"');
+
+
 	//-->
 	</script>
  </body>
