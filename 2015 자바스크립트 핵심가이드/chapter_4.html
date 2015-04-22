@@ -86,9 +86,10 @@
 
 		// 7. 기본 타입에 기능 추가
 		Function.prototype.method = function(name, func) {
-			this.prototype[name] = func;
-			return this;
-		}
+			if ( !this.prototype[name] ) {
+				this.prototype[name] = func;
+			}
+		};
 
 		Number.method('integer', function() {
 			return Math[this < 0 ? 'ceil' : 'floor'](this);
@@ -102,6 +103,17 @@
 
 		output('"' + '    neat '.trim() + '"');
 
+		// 8. 재귀적 호출
+		var hanoi = function(disc, src, aux, dst) {
+			if ( disc > 0 ) {
+				hanoi(disc - 1, src, dst, aux);
+				output( 'Move disc ' + disc + ' from ' + src + ' to ' + dst);
+
+				hanoi(disc - 1, src, src, dst);
+			}
+		};
+	
+		hanoi(3, 'Src', 'Aux', 'Dst');
 
 
 	//-->
